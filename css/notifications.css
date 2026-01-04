@@ -1,0 +1,222 @@
+/* نظام الإشعارات - Notification System */
+
+#notification-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    pointer-events: none;
+    width: 90%;
+    max-width: 400px;
+}
+
+.app-notification {
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    pointer-events: auto;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    direction: rtl;
+    font-family: 'Cairo', 'Poppins', sans-serif;
+}
+
+.app-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* أنواع الإشعارات - ألوان متناسقة مع الموقع */
+.app-notification.success {
+    background: #fff8e6;
+    border: 2px solid #fac564;
+}
+
+.app-notification.success .notification-icon {
+    background: #fac564;
+}
+
+.app-notification.success .notification-text {
+    color: #8a6d3b;
+}
+
+.app-notification.error {
+    background: #fce4e8;
+    border: 2px solid #F26722;
+}
+
+.app-notification.error .notification-icon {
+    background: #F26722;
+}
+
+.app-notification.error .notification-text {
+    color: #8b1a2d;
+}
+
+.app-notification.warning {
+    background: #fff3e0;
+    border: 2px solid #e0a030;
+}
+
+.app-notification.warning .notification-icon {
+    background: #e0a030;
+}
+
+.app-notification.warning .notification-text {
+    color: #7a5a1a;
+}
+
+.app-notification.info {
+    background: #f5f5f5;
+    border: 2px solid #333;
+}
+
+.app-notification.info .notification-icon {
+    background: #333;
+}
+
+.app-notification.info .notification-text {
+    color: #333;
+}
+
+/* أيقونة الإشعار */
+.notification-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* نص الإشعار */
+.notification-text {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    flex: 1;
+}
+
+/* زر الإغلاق */
+.notification-close {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+}
+
+.notification-close:hover {
+    opacity: 1;
+}
+
+/* تصميم متجاوب للهواتف */
+@media (max-width: 768px) {
+    #notification-container {
+        top: 10px;
+        width: 95%;
+        max-width: none;
+        padding: 0 10px;
+    }
+
+    .app-notification {
+        padding: 12px 15px;
+        gap: 10px;
+        border-radius: 10px;
+    }
+
+    .notification-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .notification-text {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    #notification-container {
+        top: 5px;
+    }
+
+    .app-notification {
+        padding: 10px 12px;
+        gap: 8px;
+    }
+
+    .notification-icon {
+        width: 26px;
+        height: 26px;
+        font-size: 12px;
+    }
+
+    .notification-text {
+        font-size: 12px;
+    }
+
+    .notification-close {
+        font-size: 16px;
+    }
+}
+
+/* تأثيرات الحركة */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.app-notification.entering {
+    animation: slideIn 0.3s ease forwards;
+}
+
+.app-notification.leaving {
+    animation: slideOut 0.3s ease forwards;
+}
+
+/* دعم الوضع الليلي */
+@media (prefers-color-scheme: dark) {
+    .app-notification {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+}

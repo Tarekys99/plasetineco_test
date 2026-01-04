@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Palestineco - عربة التسوق</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+    <link rel="icon" href="images/logo.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/notifications.css">
+
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .navbar-brand,
+        .nav-link,
+        .btn {
+            font-family: 'Cairo', 'Poppins', sans-serif !important;
+        }
+
+        /* Area Selection Modal */
+        .area-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .area-modal-content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .area-modal-content h3 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 20px;
+        }
+
+        .area-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .area-option {
+            padding: 15px 20px;
+            border: 2px solid #fac564;
+            background: #f8f9fa;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #333;
+            font-size: 16px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .area-option:hover {
+            background: #fac564;
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(250, 197, 100, 0.3);
+        }
+
+        .area-option span {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .area-option small {
+            display: block;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .close-modal {
+            padding: 10px 20px;
+            background: #6c757d;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .close-modal:hover {
+            background: #5a6268;
+        }
+
+        /* Loading spinner */
+        .spinner-border {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            vertical-align: text-bottom;
+            border: 0.25em solid currentColor;
+            border-right-color: transparent;
+            border-radius: 50%;
+            animation: spinner-border 0.75s linear infinite;
+        }
+
+        @keyframes spinner-border {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .text-primary {
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mobile-nav-placeholder"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Al Sultan Logo" style="height: 60px;">
+                <span class="ml-2">Palestineco</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav">
+                <span class="oi oi-menu"></span> المشتريات
+            </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="index.html" class="nav-link"><i class="icon-home"></i> الصفحة
+                            الرئيسية</a></li>
+                    <li class="nav-item"><a href="menu.html" class="nav-link"><i class="icon-menu"></i> المنيو</a>
+                    </li>
+                    <li class="nav-item active"><a href="cart.html" class="nav-link"><i class="icon-shopping-cart"></i>
+                            المشتريات <span class="badge badge-warning cart-count" style="display: none;">0</span></a>
+                    </li>
+                    <li class="nav-item"><a href="login.html" class="nav-link"><i class="icon-user"></i> تسجيل
+                            الدخول</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="home-slider owl-carousel img" style="background-image: url(right_images/img2.jpg);">
+        <div class="slider-item" style="background-image: url(right_images/img2.jpg);">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row slider-text justify-content-center align-items-center">
+                    <div class="col-md-7 col-sm-12 text-center ftco-animate">
+                        <h1 class="mb-3 mt-5 bread">سلة المشتريات</h1>
+                        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">الصفحة الرئيسية | </a></span>
+                            <span>المشتريات</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section" dir="rtl">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="cart-table">
+                        <table id="cart-items-table">
+                            <thead>
+                                <tr>
+                                    <th>المنتج</th>
+                                    <th>السعر</th>
+                                    <th>الكمية</th>
+                                    <th>الاجمالي</th>
+                                    <th>اجراء</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cart-items"></tbody>
+                        </table>
+
+                        <!-- Mobile Cart Items -->
+                        <div id="mobile-cart-items" class="mobile-cart-items" style="display: none;"></div>
+
+                        <div id="empty-cart-message" class="empty-cart" style="display: none;">
+                            <i class="icon-shopping-cart"></i>
+                            <h3>سلة المشتريات فارغة</h3>
+                            <p>أضف بعض المنتجات !</p>
+                            <a href="menu.html" class="continue-shopping">تصفح المنيو</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="cart-summary">
+                        <h3>ملخص الطلب</h3>
+                        <div class="summary-row">
+                            <span>المجموع الفرعي</span>
+                            <span id="subtotal">0.00 EGP</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>التوصيل</span>
+                            <span id="delivery-fee">0.00 EGP</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>الاجمالي</span>
+                            <span id="total">0.00 EGP</span>
+                        </div>
+                        <a href="menu.html" class="continue-shopping"
+                            style="display: block; text-align: center; margin-top: 15px;">متابعة التسوق</a>
+                    </div>
+
+                    <!-- Customer Information Form -->
+                    <div class="customer-info" id="customer-info">
+                        <h3>معلومات العميل</h3>
+
+                        <div class="address-buttons">
+                            <button type="button" class="address-btn" onclick="showPreviousAddresses()">العناوين
+                                السابقة</button>
+                            <button type="button" class="address-btn" onclick="selectDeliveryArea()">حدد
+                                منطقة التوصيل أولاً</button>
+                        </div>
+
+                        <form id="customer-form">
+                            <div class="form-row">
+                                <div class="form-group half-width">
+                                    <label>الاسم *</label>
+                                    <input type="text" id="customer-name" required>
+                                </div>
+                                <div class="form-group half-width">
+                                    <label>رقم الهاتف *</label>
+                                    <input type="tel" id="customer-phone" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group half-width">
+                                    <label>المدينة *</label>
+                                    <input type="text" id="customer-city" required>
+                                </div>
+                                <div class="form-group half-width">
+                                    <label>الشارع *</label>
+                                    <input type="text" id="customer-street" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>المبنى/الرقم *</label>
+                                <input type="text" id="customer-building" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>العنوان التفصيلي *</label>
+                                <textarea id="customer-address" rows="3" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>طريقة الدفع *</label>
+                                <button type="button" class="payment-btn" onclick="showPaymentMethods()">اختر طريقة
+                                    الدفع</button>
+                                <span id="selected-payment" class="selected-payment"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>ملاحظات العميل (اختياري)</label>
+                                <textarea id="customer-notes" rows="3"
+                                    placeholder="أضف أي ملاحظات خاصة بالطلب..."></textarea>
+                            </div>
+
+                            <button type="submit" class="checkout-btn">إتمام الطلب</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/jquery.timepicker.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/load-footer.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/cart-helpers.js"></script>
+    <script src="js/address-manager.js"></script>
+    <script src="js/zone-payment-manager.js"></script>
+    <script src="js/order-creator.js"></script>
+
+    <script>
+        // Ensure cart-api functions are available
+        window.addEventListener('load', function () {
+            // If cart-api.js didn't load properly, define functions here
+            if (typeof window.showPreviousAddresses === 'undefined') {
+                console.log('Loading cart-api functions directly...');
+
+                // Copy essential functions from cart-api.js
+                const API_BASE_URL = 'https://pizza-alslam-apis.onrender.com';
+
+                // Helper function to get UserID
+                function getUserID() {
+                    let user = JSON.parse(localStorage.getItem('currentUser'));
+                    if (user && user.userID) {
+                        return user.userID;
+                    }
+                    return null;
+                }
+
+                // API call helper function
+                async function cartApiCall(endpoint, method = 'GET', data = null) {
+                    try {
+                        const options = {
+                            method: method,
+                            headers: { 'Content-Type': 'application/json' }
+                        };
+                        if (data) options.body = JSON.stringify(data);
+
+                        const response = await fetch(API_BASE_URL + endpoint, options);
+                        const result = await response.json();
+
+                        return {
+                            success: response.ok,
+                            data: result,
+                            status: response.status
+                        };
+                    } catch (error) {
+                        return {
+                            success: false,
+                            data: { message: 'خطأ في الاتصال بالخادم' },
+                            status: 500
+                        };
+                    }
+                }
+
+                // Load user's previous addresses
+                async function loadUserAddresses() {
+                    try {
+                        const userID = getUserID();
+                        if (!userID) throw new Error('يجب تسجيل الدخول أولاً');
+
+                        const result = await cartApiCall(`/addresses/user/${userID}`);
+                        if (result.success && Array.isArray(result.data)) {
+                            return result.data.slice(-5);
+                        }
+                        return [];
+                    } catch (error) {
+                        console.error('Error loading addresses:', error);
+                        return [];
+                    }
+                }
+
+                // Show previous addresses modal
+                window.showPreviousAddresses = async function () {
+                    console.log('showPreviousAddresses called');
+
+                    const userID = getUserID();
+                    if (!userID) {
+                        alert('يجب تسجيل الدخول أولاً لعرض العناوين السابقة');
+                        return;
+                    }
+
+                    try {
+                        const addresses = await loadUserAddresses();
+                        console.log('Addresses loaded:', addresses);
+
+                        if (!Array.isArray(addresses) || addresses.length === 0) {
+                            alert('لا توجد عناوين محفوظة');
+                            return;
+                        }
+
+                        // Create modal
+                        const modal = document.createElement('div');
+                        modal.style.cssText = `
+                            position: fixed !important;
+                            top: 0 !important;
+                            left: 0 !important;
+                            width: 100% !important;
+                            height: 100% !important;
+                            background: rgba(0, 0, 0, 0.8) !important;
+                            display: flex !important;
+                            justify-content: center !important;
+                            align-items: center !important;
+                            z-index: 99999 !important;
+                        `;
+
+                        modal.innerHTML = `
+                            <div style="
+                                background: #fff !important;
+                                padding: 30px !important;
+                                border-radius: 10px !important;
+                                text-align: center !important;
+                                max-width: 600px !important;
+                                width: 90% !important;
+                                max-height: 80vh !important;
+                                overflow-y: auto !important;
+                            ">
+                                <h3 style="margin-bottom: 20px; color: #333;">اختر عنوان سابق (${addresses.length} عناوين)</h3>
+                                <div style="max-height: 400px; overflow-y: auto; margin-bottom: 20px;">
+                                    ${addresses.map((address, index) => `
+                                        <div onclick="selectPreviousAddress(${index})" style="
+                                            border: 2px solid #fac564;
+                                            background: #f8f9fa;
+                                            border-radius: 10px;
+                                            padding: 15px;
+                                            margin-bottom: 10px;
+                                            cursor: pointer;
+                                            text-align: right;
+                                        " onmouseover="this.style.background='#fac564'" 
+                                           onmouseout="this.style.background='#f8f9fa'">
+                                            <div style="font-weight: bold; margin-bottom: 5px;">${address.RecipientName}</div>
+                                            <div style="font-size: 14px; margin-bottom: 3px;">${address.City} - ${address.Street}</div>
+                                            <div style="font-size: 14px; margin-bottom: 3px;">${address.Building}</div>
+                                            <div style="font-size: 12px; color: #666;">${address.RecipientPhone}</div>
+                                            ${address.delivery_zone ? `<div style="font-size: 12px; color: #28a745; margin-top: 5px;">
+                                                ${address.delivery_zone.ZoneName} - ${address.delivery_zone.DeliveryCost} EGP
+                                            </div>` : ''}
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                <button onclick="closeAddressModal()" style="
+                                    padding: 10px 20px;
+                                    background: #6c757d;
+                                    color: #fff;
+                                    border: none;
+                                    border-radius: 5px;
+                                    cursor: pointer;
+                                ">إغلاق</button>
+                            </div>
+                        `;
+
+                        document.body.appendChild(modal);
+                        window.loadedAddresses = addresses;
+
+                    } catch (error) {
+                        alert('خطأ في تحميل العناوين: ' + error.message);
+                    }
+                };
+
+                // Select previous address
+                window.selectPreviousAddress = function (index) {
+                    const addresses = window.loadedAddresses;
+                    if (!addresses || !addresses[index]) {
+                        alert('خطأ في اختيار العنوان');
+                        return;
+                    }
+
+                    const address = addresses[index];
+
+                    // Fill form fields
+                    document.getElementById('customer-name').value = address.RecipientName || '';
+                    document.getElementById('customer-phone').value = address.RecipientPhone || '';
+                    document.getElementById('customer-city').value = address.City || '';
+                    document.getElementById('customer-street').value = address.Street || '';
+                    document.getElementById('customer-building').value = address.Building || '';
+
+                    const detailedAddress = `${address.City || ''} - ${address.Street || ''} - ${address.Building || ''}`.replace(/^-\s*|-\s*$/g, '').replace(/\s*-\s*-\s*/g, ' - ');
+                    document.getElementById('customer-address').value = detailedAddress;
+
+                    // Set selected zone if available
+                    if (address.delivery_zone) {
+                        window.selectedZone = {
+                            id: address.delivery_zone.ZoneID,
+                            name: address.delivery_zone.ZoneName,
+                            cost: parseFloat(address.delivery_zone.DeliveryCost)
+                        };
+                        document.getElementById('delivery-fee').textContent = `${address.delivery_zone.DeliveryCost} EGP`;
+                        if (typeof updateSummary === 'function') updateSummary();
+                    }
+
+                    closeAddressModal();
+                    alert(`تم اختيار العنوان: ${address.City} - ${address.Street}`);
+                };
+
+                // Close address modal
+                window.closeAddressModal = function () {
+                    const modal = document.querySelector('[style*="position: fixed"][style*="z-index: 99999"]');
+                    if (modal) modal.remove();
+                    window.loadedAddresses = null;
+                };
+
+                console.log('Cart-api functions loaded directly');
+            }
+
+            // Initialize cart display
+            updateCartDisplay();
+        });
+
+        // Use cart from cart.js instead of redefining it
+        // let cart = JSON.parse(localStorage.getItem('cart')) || []; // Remove this line
+
+        function updateCartDisplay() {
+            // Get latest cart data from localStorage
+            cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            const cartItemsContainer = document.getElementById('cart-items');
+            const mobileCartContainer = document.getElementById('mobile-cart-items');
+            const emptyMessage = document.getElementById('empty-cart-message');
+            const cartTable = document.getElementById('cart-items-table');
+
+            if (cart.length === 0) {
+                cartTable.style.display = 'none';
+                if (mobileCartContainer) mobileCartContainer.style.display = 'none';
+                emptyMessage.style.display = 'block';
+                updateSummary();
+                return;
+            }
+
+            // Show both desktop and mobile versions - CSS will handle which one displays
+            cartTable.style.display = 'table';
+            emptyMessage.style.display = 'none';
+
+            cartItemsContainer.innerHTML = cart.map((item, index) => `
+                <tr>
+                    <td>
+                        <div class="cart-product-info">
+                            <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                            <div class="cart-product-details">
+                                <h6 class="product-name">${(item.name || '').replace('(عادي)', '').trim()}</h6>
+
+                                ${item.description ? `<p>${item.description.substring(0, 50)}${item.description.length > 50 ? '...' : ''}</p>` : ''}
+                            </div>
+                        </div>
+                    </td>
+                    <td><strong class="numeric-content">${item.price.toFixed(2)} EGP</strong></td>
+                    <td>
+                        <div class="quantity-control">
+                            <button onclick="updateQuantity(${index}, -1)">-</button>
+                            <input type="text" value="${item.quantity}" readonly class="quantity-input">
+                            <button onclick="updateQuantity(${index}, 1)">+</button>
+                        </div>
+                    </td>
+                    <td><strong>${(item.price * item.quantity).toFixed(2)} EGP</strong></td>
+                    <td><button class="remove-btn" onclick="removeItem(${index})">حذف</button></td>
+                </tr>
+            `).join('');
+
+            // Update mobile cart items - always update for responsive design
+            if (mobileCartContainer) {
+                mobileCartContainer.innerHTML = cart.map((item, index) => {
+
+                    const quantity = item.quantity || 1;
+                    const price = (item.price || 0).toFixed(2);
+                    const total = ((item.price || 0) * (item.quantity || 1)).toFixed(2);
+
+                    return `
+                    <div class="mobile-cart-item">
+                        <div class="product-row">
+                            <img src="${item.image || 'images/pizza-1.jpg'}" alt="${(item.name || '').replace('(عادي)', '').trim()}" class="cart-item-img" onerror="this.src='images/pizza-1.jpg'">
+
+                            <div class="product-info">
+                                <h6 class="product-name-mobile">${((item.name || 'منتج').replace('(عادي)', '').trim())}</h6>
+
+                            </div>
+                        </div>
+                        ${item.description ? `<div class="product-desc-mobile">${item.description.substring(0, 80)}${item.description.length > 80 ? '...' : ''}</div>` : ''}
+                        <div class="controls-row">
+                            <div class="quantity-control">
+                                <button onclick="updateQuantity(${index}, -1)">-</button>
+                                <input type="text" value="${quantity}" readonly class="quantity-input">
+                                <button onclick="updateQuantity(${index}, 1)">+</button>
+                            </div>
+                            <div class="price-info-mobile">
+                                <div class="unit-price">${price} EGP</div>
+                                <div class="total-price">${total} EGP</div>
+                            </div>
+                            <button class="remove-btn" onclick="removeItem(${index})">حذف</button>
+                        </div>
+                    </div>
+                `;
+                }).join('');
+
+                // Numbers are English by default - no conversion needed
+            }
+
+            updateSummary();
+        }
+
+        function updateQuantity(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity < 1) cart[index].quantity = 1;
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+
+        function removeItem(index) {
+            if (confirm('هل أنت متأكد من حذف هذا العنصر؟')) {
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartDisplay();
+            }
+        }
+
+        function updateSummary() {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            // Delivery fee is set when zone is selected, default to 0
+            const currentDeliveryFee = window.selectedZone ? window.selectedZone.cost : 0;
+            const deliveryFee = cart.length > 0 ? currentDeliveryFee : 0;
+            const total = subtotal + deliveryFee;
+
+            document.getElementById('subtotal').textContent = `EGP ${subtotal.toFixed(2)}`;
+            document.getElementById('delivery-fee').textContent = `EGP ${deliveryFee.toFixed(2)}`;
+            document.getElementById('total').textContent = `EGP ${total.toFixed(2)}`;
+
+            // Customer info is always visible now
+        }
+
+        // Customer info functions - removed toggle as it's always visible now
+
+        // showPreviousAddresses is defined in address-manager.js - DO NOT REDEFINE HERE
+
+        function selectArea(area) {
+            // Legacy function - kept for compatibility
+            document.getElementById('customer-city').value = area;
+            closeAreaModal();
+        }
+
+        function closeAreaModal() {
+            const modal = document.querySelector('.area-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        // Payment functions are now in zone-payment-manager.js - DO NOT REDEFINE HERE
+
+        // Form submission
+        document.addEventListener('DOMContentLoaded', function () {
+            // Cart display is already initialized above
+
+            // Listen for cart updates from other pages
+            document.addEventListener('cartUpdated', function () {
+                console.log('Cart updated event received');
+                updateCartDisplay();
+            });
+
+            document.getElementById('customer-form').addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                if (!window.selectedPaymentMethod) {
+                    alert('يرجى اختيار طريقة الدفع');
+                    return;
+                }
+
+                const customerData = {
+                    name: document.getElementById('customer-name').value,
+                    phone: document.getElementById('customer-phone').value,
+                    city: document.getElementById('customer-city').value,
+                    street: document.getElementById('customer-street').value,
+                    building: document.getElementById('customer-building').value,
+                    address: document.getElementById('customer-address').value,
+                    notes: document.getElementById('customer-notes').value,
+                    paymentMethod: window.selectedPaymentMethod
+                };
+
+                // Use new API integration for order creation
+                if (typeof createOrder === 'function') {
+                    const success = await createOrder(customerData);
+                    if (success) {
+                        // Clear form and update display
+                        document.getElementById('customer-form').reset();
+                        document.getElementById('selected-payment').textContent = '';
+                        window.selectedPaymentMethod = null;
+                        window.selectedAddress = null;
+                        window.selectedZone = null;
+                        updateCartDisplay();
+                    }
+                } else {
+                    // Fallback to original method
+                    processOrderLocally(customerData);
+                }
+            });
+        });
+
+        // Fallback function for local order processing
+        function processOrderLocally(customerData) {
+            // Save address for future use
+            const savedAddresses = JSON.parse(localStorage.getItem('savedAddresses')) || [];
+            const newAddress = {
+                city: customerData.city,
+                street: customerData.street,
+                address: customerData.address
+            };
+
+            // Check if address already exists
+            const exists = savedAddresses.some(addr =>
+                addr.city === newAddress.city &&
+                addr.street === newAddress.street &&
+                addr.address === newAddress.address
+            );
+
+            if (!exists) {
+                savedAddresses.push(newAddress);
+                localStorage.setItem('savedAddresses', JSON.stringify(savedAddresses));
+            }
+
+            // Process order
+            const orderData = {
+                customer: customerData,
+                items: cart,
+                total: document.getElementById('total').textContent,
+                orderDate: new Date().toISOString()
+            };
+
+            console.log('Order Data:', orderData);
+            alert('تم إرسال الطلب بنجاح! سيتم التواصل معك قريباً.');
+
+            // Clear cart and form
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+            document.getElementById('customer-form').reset();
+            document.getElementById('selected-payment').textContent = '';
+            window.selectedPaymentMethod = null;
+        }
+
+        // Make functions available globally
+        window.updateCartDisplay = updateCartDisplay;
+    </script>
+</body>
+
+</html>
+</script>
+</body>
+
+</html>

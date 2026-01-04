@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <title>لوحة التحكم - بيتزا السلام</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/logo.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Auth Protection -->
+    <script>
+        // Check authentication before page loads
+        (function () {
+            const auth = sessionStorage.getItem('dashboardAuth');
+            const authTime = parseInt(auth);
+            const now = Date.now();
+            const twoHours = 2 * 60 * 60 * 1000;
+
+            // Redirect if not authenticated or session expired
+            if (!auth || (now - authTime) > twoHours) {
+                sessionStorage.removeItem('dashboardAuth');
+                window.location.href = 'auth.html';
+            }
+        })();
+    </script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="../images/logo.png" alt="بيتزا السلام" class="logo">
+                <h1>لوحة التحكم</h1>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button onclick="logout()"
+                    style="background: #dc3545; color: white; border: none; padding: 8px 20px; border-radius: 8px; cursor: pointer; font-family: 'Cairo', sans-serif; font-weight: 600;">
+                    تسجيل الخروج
+                </button>
+                <a href="../index.html" class="back-btn">
+                    <span>←</span> العودة للموقع
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <!-- Sidebar - Categories -->
+        <aside class="sidebar">
+            <h2>إدارة المحتوى</h2>
+
+            <!-- Navigation Tabs -->
+            <div class="sidebar-tabs">
+                <button class="tab-btn active" onclick="switchTab('products')">
+                    <i class="icon-menu"></i> المنتجات
+                </button>
+                <button class="tab-btn" onclick="switchTab('zones')">
+                    <i class="icon-map-marker"></i> مناطق التوصيل
+                </button>
+            </div>
+
+            <!-- Settings Link -->
+            <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 10px;">
+                <a href="change-password.html"
+                    style="display: flex; align-items: center; gap: 10px; color: #F26722; text-decoration: none; font-weight: 600;">
+                     تغيير كلمة المرور
+                </a>
+            </div>
+
+            <!-- Products Tab -->
+            <div id="products-tab" class="tab-content active">
+                <h3>الفئات</h3>
+                <div id="categories-list" class="categories-list">
+                    <div class="loading">جاري التحميل...</div>
+                </div>
+            </div>
+
+            <!-- Zones Tab -->
+            <div id="zones-tab" class="tab-content">
+                <div class="zones-header">
+                    <h3>مناطق التوصيل</h3>
+                    <button class="add-zone-btn" onclick="openAddZoneModal()">
+                        + إضافة منطقة
+                    </button>
+                </div>
+                <div id="zones-list" class="zones-list">
+                    <div class="loading">جاري التحميل...</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Products Area -->
+        <section class="products-section">
+            <!-- Products View -->
+            <div id="products-view" class="view-content active">
+                <div class="products-header">
+                    <h2 id="category-title">اختر فئة لعرض المنتجات</h2>
+                    <button class="add-product-btn" id="add-product-btn" style="display: none;">
+                        + إضافة منتج جديد
+                    </button>
+                </div>
+
+                <div id="products-container" class="products-grid">
+                    <div class="empty-state">
+                        <div class="empty-icon">📦</div>
+                        <p>اختر فئة من القائمة الجانبية لعرض المنتجات</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zones View -->
+            <div id="zones-view" class="view-content">
+                <div class="zones-header">
+                    <h2>إدارة مناطق التوصيل</h2>
+                    <button class="add-zone-btn" onclick="openAddZoneModal()">
+                        + إضافة منطقة جديدة
+                    </button>
+                </div>
+
+                <div id="zones-container" class="zones-container">
+                    <div class="loading">جاري تحميل المناطق...</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Product Modal (Add/Edit) -->
+    <div id="product-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">إضافة منتج جديد</h3>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <form id="product-form">
+                <div class="form-group">
+                    <label>اسم المنتج *</label>
+                    <input type="text" id="product-name" required>
+                </div>
+                <div class="form-group">
+                    <label>الوصف</label>
+                    <textarea id="product-description" rows="3"></textarea>
+                </div>
+
+                <!-- Image Options -->
+                <div class="form-group">
+                    <label>الصورة (اختر طريقة واحدة)</label>
+                    <div class="image-options">
+                        <div class="image-option">
+                            <input type="radio" name="image-type" id="image-type-url" value="url" checked
+                                onchange="toggleImageInput()">
+                            <label for="image-type-url">رابط صورة</label>
+                        </div>
+                        <div class="image-option">
+                            <input type="radio" name="image-type" id="image-type-file" value="file"
+                                onchange="toggleImageInput()">
+                            <label for="image-type-file">رفع صورة</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="image-url-group">
+                    <input type="text" id="product-image-url" placeholder="https://example.com/image.jpg">
+                </div>
+
+                <div class="form-group" id="image-file-group" style="display: none;">
+                    <input type="file" id="product-image-file" accept="image/*">
+                    <div id="image-preview" class="image-preview"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>الفئة *</label>
+                    <select id="product-category" required>
+                        <!-- Will be populated dynamically -->
+                    </select>
+                </div>
+
+                <!-- Product Variants Section -->
+                <div class="form-group variants-section">
+                    <label>الأحجام والأسعار *</label>
+                    <div id="variants-container" class="variants-container">
+                        <!-- Variants will be added here -->
+                    </div>
+                    <button type="button" class="add-variant-btn" onclick="addVariantRow()">
+                        + إضافة حجم
+                    </button>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="save-btn" id="save-btn">حفظ</button>
+                    <button type="button" class="cancel-btn" onclick="closeModal()">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Zone Modal (Add/Edit) -->
+    <div id="zone-modal" class="modal" style="display: none;">
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h3 id="zone-modal-title">إضافة منطقة جديدة</h3>
+                <button class="close-modal" onclick="closeZoneModal()">&times;</button>
+            </div>
+            <form id="zone-form">
+                <div class="form-group">
+                    <label>اسم المنطقة *</label>
+                    <input type="text" id="zone-name" required placeholder="مثال: المقطم">
+                </div>
+                <div class="form-group">
+                    <label>تكلفة التوصيل (جنيه) *</label>
+                    <input type="number" id="zone-cost" required min="0" step="0.01" placeholder="10.00">
+                </div>
+                <div class="form-group" id="zone-status-group" style="display: none;">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="zone-active">
+                        <span class="checkmark"></span>
+                        إعادة تفعيل المنطقة
+                    </label>
+                    <p class="help-text">قم بتفعيل هذا الخيار لإعادة تفعيل المنطقة المعطلة</p>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="save-btn" id="zone-save-btn">حفظ</button>
+                    <button type="button" class="cancel-btn" onclick="closeZoneModal()">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="delete-modal" class="modal" style="display: none;">
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h3>تأكيد الحذف</h3>
+                <button class="close-modal" onclick="closeDeleteModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>هل أنت متأكد من حذف هذا المنتج؟</p>
+                <p class="product-name-delete" id="delete-product-name"></p>
+            </div>
+            <div class="form-actions">
+                <button class="delete-confirm-btn" onclick="confirmDelete()">نعم، احذف</button>
+                <button class="cancel-btn" onclick="closeDeleteModal()">إلغاء</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Files (مقسمة لسهولة الصيانة) -->
+    <script src="js/config.js"></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/variants.js"></script>
+    <script src="js/zones.js"></script>
+    <script src="js/modals.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        function logout() {
+            sessionStorage.removeItem('dashboardAuth');
+            window.location.href = 'auth.html';
+        }
+    </script>
+</body>
+
+</html>

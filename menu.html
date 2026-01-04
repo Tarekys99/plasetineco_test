@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+	<title>منيو Palestineco - أسعار البيتزا والمعجنات | المقطم</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+	<!-- SEO Meta Tags -->
+	<meta name="description"
+		content="تصفح منيو Palestineco الكامل مع الأسعار. بيتزا إيطالية وشرقية، معجنات، كريب، مكرونة، حواوشي، فطير حلو وحادق. اطلب الآن!">
+	<meta name="keywords"
+		content="منيو Palestineco, أسعار البيتزا, بيتزا إيطالية أسعار, معجنات أسعار, كريب المقطم, مكرونة توصيل, حواوشي, فطير">
+	<meta name="robots" content="index, follow">
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="منيو Palestineco - أسعار البيتزا والمعجنات">
+	<meta property="og:description" content="تصفح منيو Palestineco الكامل مع الأسعار. توصيل مجاني في المقطم">
+	<meta property="og:image" content="https://pizzalslam.shop/images/menu1.png">
+	<meta property="og:url" content="https://pizzalslam.shop/menu.html">
+
+	<link rel="canonical" href="https://pizzalslam.shop/menu.html">
+
+	<link rel="icon" href="images/logo.png" type="image/png">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="css/aos.css">
+	<link rel="stylesheet" href="css/ionicons.min.css">
+	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="css/jquery.timepicker.css">
+	<link rel="stylesheet" href="css/flaticon.css">
+	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/cart.css">
+	<link rel="stylesheet" href="css/offers.css">
+	<link rel="stylesheet" href="css/notifications.css">
+	<link rel="stylesheet" href="css/offers-banner.css">
+
+	<style>
+		body,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		.navbar-brand,
+		.nav-link,
+		.btn {
+			font-family: 'Cairo', 'Poppins', sans-serif !important;
+		}
+
+		/* Login Notice Banner - ألوان متناسقة مع الموقع */
+		.login-notice-banner {
+			background: linear-gradient(135deg, #2a2a2a 0%, #3d3d3d 100%);
+			border: 2px solid #F26722;
+			border-radius: 30px;
+			padding: 12px 20px;
+			margin: 20px auto;
+			max-width: 700px;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+		}
+
+		.notice-content {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 15px;
+			flex-wrap: wrap;
+		}
+
+		.notice-icon {
+			background: #F26722;
+			color: #000;
+			width: 28px;
+			height: 28px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 14px;
+			font-weight: bold;
+			flex-shrink: 0;
+		}
+
+		.notice-text {
+			color: #fff;
+			font-size: 13px;
+			flex: 1;
+			text-align: right;
+			line-height: 1.5;
+		}
+
+		.notice-btn {
+			background: #F26722;
+			color: #000 !important;
+			padding: 8px 20px;
+			border-radius: 20px;
+			text-decoration: none !important;
+			font-size: 13px;
+			font-weight: 600;
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			transition: all 0.3s ease;
+			white-space: nowrap;
+			flex-shrink: 0;
+		}
+
+		.notice-btn:hover {
+			background: #e0b050;
+			transform: translateY(-2px);
+			box-shadow: 0 4px 10px rgba(250, 197, 100, 0.4);
+		}
+
+		.notice-btn i {
+			font-size: 14px;
+		}
+
+		/* Hide notice when logged in */
+		.login-notice-banner.hidden {
+			display: none;
+		}
+
+		/* Mobile responsive for notice */
+		@media (max-width: 768px) {
+			.login-notice-banner {
+				padding: 10px 15px;
+				margin: 15px 10px;
+			}
+
+			.notice-content {
+				flex-direction: column;
+				text-align: center;
+				gap: 10px;
+			}
+
+			.notice-text {
+				text-align: center;
+				font-size: 12px;
+			}
+
+			.notice-btn {
+				width: 100%;
+				justify-content: center;
+				padding: 10px 20px;
+			}
+
+			.notice-icon {
+				display: none;
+			}
+		}
+
+		/* Menu Product Cards - Clean Modern Style */
+		.menu-product-card {
+			background: transparent;
+			border: 1px solid rgba(255, 255, 255, 0.15);
+			border-radius: 12px;
+			padding: 15px;
+			margin-bottom: 12px;
+			position: relative;
+			/* For offer badge positioning */
+		}
+
+		/* Row 1: Image + Name */
+		.card-row-1 {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 8px;
+		}
+
+		.card-img {
+			width: 75px;
+			height: 75px;
+			border-radius: 8px;
+			background-size: cover;
+			background-position: center;
+			flex-shrink: 0;
+			border: 2px solid #F26722;
+			order: 1;
+		}
+
+		.card-title {
+			text-align: left;
+			order: 2;
+			font-size: 17px;
+			font-weight: 600;
+			color: #fff;
+			margin: 0;
+		}
+
+		/* Row 2: Description */
+		.card-desc {
+			font-size: 13px;
+			color: #aaa;
+			margin: 0 0 8px 0;
+			line-height: 1.4;
+			text-align: right;
+		}
+
+		/* Row 3: Size Buttons */
+		.card-row-3 {
+			display: flex;
+			align-items: center;
+			margin-bottom: 10px;
+			gap: 8px;
+			flex-wrap: wrap;
+		}
+
+		.size-buttons {
+			display: flex;
+			gap: 3px;
+			flex-wrap: wrap;
+			width: 100%;
+		}
+
+		.size-btn {
+			flex: 1;
+			min-width: 45px;
+			background: transparent;
+			border: 1px solid #555;
+			border-radius: 4px;
+			color: #aaa;
+			padding: 2px 2px;
+			cursor: pointer;
+			text-align: center;
+			transition: all 0.2s;
+			font-family: 'Cairo', sans-serif;
+		}
+
+		.size-btn .size-name {
+			display: block;
+			font-size: 13px;
+			font-weight: 600;
+		}
+
+		.size-btn .size-price {
+			display: block;
+			font-size: 11px;
+			margin-top: 0px;
+		}
+
+		.size-btn:hover {
+			border-color: #F26722;
+			color: #F26722;
+		}
+
+		.size-btn.active {
+			background: rgba(250, 197, 100, 0.15);
+			border-color: #F26722;
+			color: #F26722;
+		}
+
+		/* Row 4: Qty + Add Button */
+		.card-row-4 {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
+		.qty-group {
+			display: flex;
+			align-items: center;
+			border: 1px solid #555;
+			border-radius: 6px;
+			overflow: hidden;
+		}
+
+		.qty-btn {
+			width: 32px;
+			height: 32px;
+			border: none;
+			background: rgba(255, 255, 255, 0.1);
+			color: #fff;
+			font-size: 16px;
+			cursor: pointer;
+			transition: background 0.2s;
+		}
+
+		.qty-btn:hover {
+			background: #F26722;
+			color: #000;
+		}
+
+		.qty-btn:active {
+			background: #e0b050;
+		}
+
+		.qty-input {
+			width: 40px;
+			height: 32px;
+			text-align: center;
+			border: none;
+			border-left: 1px solid #555;
+			border-right: 1px solid #555;
+			background: transparent;
+			color: #fff;
+			font-size: 14px;
+			font-weight: bold;
+		}
+
+		.add-btn {
+			flex: 1;
+			background: linear-gradient(135deg, #F26722 0%, #e0a030 100%);
+			color: #000;
+			border: none;
+			padding: 8px 16px;
+			font-size: 13px;
+			font-weight: bold;
+			cursor: pointer;
+			border-radius: 6px;
+			transition: all 0.2s;
+		}
+
+		.add-btn:hover {
+			background: linear-gradient(135deg, #ffe090 0%, #F26722 100%);
+			transform: translateY(-1px);
+		}
+
+		.add-btn:active {
+			transform: translateY(0);
+		}
+
+		/* Category Tabs */
+		#v-pills-tab .nav-link {
+			margin: 4px;
+			padding: 10px 18px;
+			font-size: 14px;
+			border-radius: 0px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="mobile-nav-placeholder"></div>
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">
+				<img src="images/logo.png" alt="Palestineco Logo" style="height: 60px;">
+				<span class="ml-2">Palestineco</span>
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> المنيو
+			</button>
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a href="index.html" class="nav-link"><i class="icon-home"></i> الصفحة
+							الرئيسية</a></li>
+					<li class="nav-item active"><a href="menu.html" class="nav-link"><i class="icon-menu"></i>
+							المنيو</a></li>
+					<li class="nav-item"><a href="cart.html" class="nav-link"><i class="icon-shopping-cart"></i>
+							المشتريات <span class="badge badge-warning cart-count" style="display: none;">0</span></a>
+					</li>
+					<li class="nav-item"><a href="login.html" class="nav-link"><i class="icon-user"></i> تسجيل
+							الدخول</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Offers Banner -->
+	<div class="offers-banner">
+		<div class="offers-scroll">
+			<!-- Dynamic offers will be loaded here by JavaScript -->
+		</div>
+	</div>
+
+	<section class="home-slider owl-carousel img" style="background-image: url(right_images/img2.jpg);">
+		<div class="slider-item" style="background-image: url(right_images/img2.jpg);">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row slider-text justify-content-center align-items-center">
+					<div class="col-md-7 col-sm-12 text-center ftco-animate">
+						<h1 class="mb-3 mt-5 bread">المنيو</h1>
+						<p class="breadcrumbs"><span class="mr-2"><a href="index.html">الصفحة الرئيسية |
+								</a></span>
+							<span>المنيو</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 heading-section text-center ftco-animate">
+					<h2 class="mb-4">قائمة الطعام</h2>
+					<p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span>
+					</p>
+					<p class="mt-5">اختر من تشكيلتنا الواسعة من الأطباق الشهية</p>
+
+					<!-- Login Notice Banner -->
+					<div class="login-notice-banner" id="login-notice">
+						<div class="notice-content">
+							<span class="notice-icon">ℹ</span>
+							<span class="notice-text">ملاحظة: يجب تسجيل الدخول أول مرة فقط وسيتم حفظ معلوماتك
+								تلقائياً
+								دون التسجيل مرة اخرى</span>
+							<a href="login.html" class="notice-btn">
+								<i class="icon-login"></i> تسجيل دخول
+							</a>
+						</div>
+					</div>
+
+					<!-- Menu Images Gallery -->
+					<div class="menu-gallery mt-4">
+						<img src="images/menu1.png" alt="قائمة الطعام 1" class="menu-thumbnail"
+							onclick="openMenuImage('images/menu1.png')">
+						<img src="images/menu2.png" alt="قائمة الطعام 2" class="menu-thumbnail"
+							onclick="openMenuImage('images/menu2.png')">
+					</div>
+				</div>
+			</div>
+
+			<!-- Category Tabs - Bootstrap Pills Style -->
+			<div class="row justify-content-center mb-5">
+				<div class="col-md-10 heading-section text-center ftco-animate">
+					<div class="nav ftco-animate nav-pills justify-content-center" id="v-pills-tab" role="tablist">
+						<div class="loading-spinner">جاري تحميل الفئات...</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Products Content -->
+			<div class="row">
+				<div class="col-md-12">
+					<div id="products-container" class="row">
+						<div class="col-12 text-center py-5">
+							<div class="spinner-border text-primary" role="status">
+								<span class="sr-only">جاري التحميل...</span>
+							</div>
+							<p class="mt-3">جاري تحميل المنتجات...</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Cart Summary Bar -->
+	<div id="cart-summary-bar" class="cart-summary-bar">
+		<div class="cart-summary-info">
+			<div class="cart-item-count" id="cart-bar-count">0 عنصر</div>
+			<div class="cart-total-price" id="cart-bar-total">0.00 EGP</div>
+		</div>
+		<a href="cart.html" class="cart-view-btn">
+			عرض المشتريات
+		</a>
+	</div>
+
+	<div id="footer-placeholder"></div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/notifications.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/jquery.animateNumber.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/jquery.timepicker.min.js"></script>
+	<script src="js/scrollax.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/cart.js"></script>
+	<script src="js/load-footer.js"></script>
+	<script src="js/auth.js"></script>
+	<script src="js/menu-api.js"></script>
+	<script src="js/offers-banner.js"></script>
+
+	<script>
+			// Hide login notice if user is logged in
+			document.addEventListener('DOMContentLoaded', function () {
+			const loginNotice = document.getElementById('login-notice');
+			const currentUser = localStorage.getItem('currentUser');
+			if (currentUser && loginNotice) {
+				loginNotice.style.display = 'none';
+			}
+		});
+	</script>
+
+	<script>
+		// Menu Image Modal Functions
+		function openMenuImage(imageSrc) {
+			const modal = document.createElement('div');
+			modal.className = 'image-modal';
+			modal.innerHTML = `
+				<span class="close-modal" onclick="closeImageModal()">&times;</span>
+				<img src="${imageSrc}" alt="قائمة الطعام">
+			`;
+			document.body.appendChild(modal);
+
+			// Close modal when clicking outside the image
+			modal.addEventListener('click', function (e) {
+				if (e.target === modal) {
+					closeImageModal();
+				}
+			});
+		}
+
+		function closeImageModal() {
+			const modal = document.querySelector('.image-modal');
+			if (modal) {
+				modal.remove();
+			}
+		}
+
+		// Close modal with Escape key
+		document.addEventListener('keydown', function (e) {
+			if (e.key === 'Escape') {
+				closeImageModal();
+			}
+		});
+
+		// Initialize cart summary bar on page load
+		document.addEventListener('DOMContentLoaded', function () {
+			function initCartBar() {
+				if (typeof updateCartSummaryBar === 'function') {
+					updateCartSummaryBar();
+					console.log('Cart bar initialized on menu page');
+				} else {
+					console.log('Waiting for cart.js to load...');
+					setTimeout(initCartBar, 200);
+				}
+			}
+
+			setTimeout(initCartBar, 100);
+
+			// Also update when cart changes
+			document.addEventListener('cartUpdated', function () {
+				if (typeof updateCartSummaryBar === 'function') {
+					updateCartSummaryBar();
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>

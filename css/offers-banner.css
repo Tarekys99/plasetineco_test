@@ -1,0 +1,171 @@
+/* ========================================
+   Offers Banner - Clean & Simple
+   ======================================== */
+
+/* Main Banner Container */
+.offers-banner {
+    background: linear-gradient(135deg, #F26722 0%, #8B0000 100%);
+    color: white;
+    overflow: hidden;
+    position: relative;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    font-family: 'Cairo', sans-serif;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-bottom: 3px solid #fac564;
+}
+
+/* Scroll Container */
+.offers-scroll {
+    display: flex;
+    white-space: nowrap;
+    animation: scrollBanner 20s linear infinite;
+}
+
+/* Individual Offer Card */
+.offer-item {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin: 0 25px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.offer-item:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.offer-item:active {
+    transform: scale(0.98);
+}
+
+/* Product Image */
+.offer-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 15px;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Content Container */
+.offer-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Product Name */
+.offer-text {
+    font-size: 18px;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    margin-bottom: 4px;
+}
+
+/* Price */
+.offer-price {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fac564;
+}
+
+/* Desktop Animation */
+@keyframes scrollBanner {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause on Hover (Desktop) */
+.offers-banner:hover .offers-scroll {
+    animation-play-state: paused;
+}
+
+/* ========================================
+   Mobile Styles - Swipe Slider
+   ======================================== */
+@media (max-width: 768px) {
+    .offers-banner {
+        height: 110px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Hide scrollbar but keep functionality */
+    .offers-banner::-webkit-scrollbar {
+        display: none;
+    }
+
+    .offers-banner {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    /* No animation on mobile - manual swipe */
+    .offers-scroll {
+        animation: none !important;
+        display: flex;
+        padding: 0 15px;
+        width: max-content;
+    }
+
+    .offer-item {
+        margin: 0 10px;
+        padding: 10px 15px;
+        min-width: 220px;
+    }
+
+    .offer-image {
+        width: 55px;
+        height: 55px;
+        margin-left: 12px;
+    }
+
+    .offer-text {
+        font-size: 14px;
+    }
+
+    .offer-price {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .offers-banner {
+        height: 100px;
+    }
+
+    .offer-item {
+        min-width: 200px;
+        padding: 8px 12px;
+    }
+
+    .offer-image {
+        width: 50px;
+        height: 50px;
+        margin-left: 10px;
+    }
+
+    .offer-text {
+        font-size: 13px;
+    }
+
+    .offer-price {
+        font-size: 12px;
+    }
+}

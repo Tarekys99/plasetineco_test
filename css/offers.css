@@ -1,0 +1,142 @@
+/* Offers Page Styles */
+
+.ribbon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+}
+
+.pricing-entry {
+    position: relative;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+.pricing-entry:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* تحسين عرض الصورة - تمتد من اليمين لليسار بالكامل */
+.pricing-entry .img.offer-img-full {
+    width: 100%;
+    height: 200px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+
+.combo-offer {
+    border: 2px solid #28a745;
+    transition: all 0.3s ease;
+}
+
+.combo-offer:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.2);
+}
+
+.old-price {
+    font-size: 0.9em;
+}
+
+.new-price {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.price-combo .old-price {
+    font-size: 1em;
+}
+
+.price-combo .new-price {
+    margin-left: 15px;
+}
+
+/* Quantity Control */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    background: transparent;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background: transparent;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.quantity-btn:hover {
+    background: #c9302c;
+    color: #fff;
+    border-color: #c9302c;
+}
+
+.quantity-input {
+    width: 45px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ddd;
+    margin: 0 5px;
+    border-radius: 15px;
+    background: transparent;
+}
+
+/* Mobile optimization for offers */
+@media (max-width: 768px) {
+    .pricing-entry {
+        margin-bottom: 20px;
+    }
+
+    .pricing-entry .img.offer-img-full {
+        height: 150px;
+    }
+
+    .pricing-entry .desc {
+        padding: 15px 20px;
+    }
+
+    .pricing-entry .desc h3 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+
+    .pricing-entry .desc p {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+    }
+
+    .price-offer {
+        margin-bottom: 12px;
+    }
+
+    .quantity-control {
+        margin-bottom: 10px;
+    }
+
+    .quantity-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .quantity-input {
+        width: 40px;
+        height: 28px;
+        font-size: 12px;
+    }
+
+    .btn-primary {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://pizzalslam.shop/sitemap.xml
+
+# Disallow admin areas
+Disallow: /Dashboard_Editor/
+Disallow: /includes/
+Disallow: /*.exe$
+
+# Allow important pages
+Allow: /index.html
+Allow: /menu.html
+Allow: /cart.html
+Allow: /login.html
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+# Crawl delay (optional)
+Crawl-delay: 1

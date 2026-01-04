@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Palestineco - تسجيل الدخول</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+    <link rel="icon" href="images/logo.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/offers.css">
+    <link rel="stylesheet" href="css/notifications.css">
+    <link rel="stylesheet" href="css/offers-banner.css">
+
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .navbar-brand,
+        .nav-link,
+        .btn {
+            font-family: 'Cairo', 'Poppins', sans-serif !important;
+        }
+
+        /* Login page background */
+        body {
+            background: url('right_images/img2.jpg') no-repeat center center fixed !important;
+            background-size: cover !important;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 0;
+        }
+
+        .login-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Spinning animation for loading icons */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mobile-nav-placeholder"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Al Sultan Logo" style="height: 60px;">
+                <span class="ml-2">Palestineco</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> تسجيل الدخول
+            </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="index.html" class="nav-link"><i class="icon-home"></i> الصفحة
+                            الرئيسية</a></li>
+                    <li class="nav-item"><a href="menu.html" class="nav-link"><i class="icon-menu"></i> المنيو</a></li>
+                    <li class="nav-item"><a href="cart.html" class="nav-link"><i class="icon-shopping-cart"></i>
+                            المشتريات <span class="badge badge-warning cart-count" style="display: none;">0</span></a>
+                    </li>
+                    <li class="nav-item active"><a href="login.html" class="nav-link"><i class="icon-user"></i> تسجيل
+                            الدخول</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Offers Banner -->
+    <div class="offers-banner">
+        <div class="offers-scroll">
+            <!-- Dynamic offers will be loaded here by JavaScript -->
+        </div>
+    </div>
+
+    <div class="login-container">
+        <div class="login-card">
+            <!-- Toggle Buttons -->
+            <div class="toggle-buttons">
+                <button class="toggle-btn active" id="signup-toggle">
+                    <i class="icon-user-plus"></i> حساب جديد
+                </button>
+                <button class="toggle-btn" id="login-toggle">
+                    <i class="icon-login"></i> تسجيل الدخول
+                </button>
+            </div>
+
+
+
+            <!-- Sign Up Form -->
+            <div class="form-container" id="signup-form">
+                <h2 class="form-title">إنشاء حساب جديد</h2>
+                <p class="form-subtitle">أدخل بياناتك للتسجيل</p>
+
+                <form id="register-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>الاسم الأول</label>
+                            <input type="text" id="first-name" placeholder="أحمد" required>
+                        </div>
+                        <div class="form-group">
+                            <label>الاسم الأخير</label>
+                            <input type="text" id="last-name" placeholder="محمد" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>رقم الهاتف</label>
+                        <input type="tel" id="phone-register" placeholder="01234567890" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>البريد الإلكتروني (اختياري)</label>
+                        <input type="email" id="email-register" placeholder="example@email.com">
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="icon-user-plus"></i> إنشاء حساب
+                    </button>
+                </form>
+            </div>
+
+            <!-- Login Form -->
+            <div class="form-container hidden" id="login-form">
+                <h2 class="form-title">تسجيل الدخول</h2>
+                <p class="form-subtitle">أدخل رقم هاتفك للدخول</p>
+
+                <form id="signin-form">
+                    <div class="form-group">
+                        <label>رقم الهاتف</label>
+                        <input type="tel" id="phone-login" placeholder="01234567890" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="icon-login"></i> تسجيل الدخول
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/cart.js"></script>
+
+    <!-- New modular authentication files -->
+    <script src="js/auth-core.js"></script>
+    <script src="js/icon-fix.js"></script>
+    <script src="js/user-orders.js"></script>
+    <script src="js/account-page.js"></script>
+    <script src="js/auth-forms.js"></script>
+
+    <script src="js/auth.js"></script>
+    <script src="js/menu-api.js"></script>
+    <script src="js/offers-banner.js"></script>
+    <script src="js/load-footer.js"></script>
+</body>
+
+</html>

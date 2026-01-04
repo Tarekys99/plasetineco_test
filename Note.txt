@@ -1,0 +1,5 @@
+
+https://emn178.github.io/online-tools/sha256.html # Hash password
+
+
+powershell -Command "(Get-Content 'c:\SSAI\SS Projects\Plasetineco\Front-End\css\style.css') -replace 'url\(\.\./right_images/background2\.jpg\)', 'url(../right_images/background3.jpg)' | Set-Content 'c:\SSAI\SS Projects\Plasetineco\Front-End\css\style.css'"
