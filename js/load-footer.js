@@ -1,7 +1,7 @@
 // Load footer and mobile nav dynamically
 document.addEventListener('DOMContentLoaded', function () {
     // Load Footer
-    fetch('includes/footer.html')
+    fetch('includes/footer.html?v=2')
         .then(response => response.text())
         .then(data => {
             const footerPlaceholder = document.getElementById('footer-placeholder');

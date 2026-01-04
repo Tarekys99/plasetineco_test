@@ -39,7 +39,7 @@
 }
 
 .cart-table th {
-    background: #fac564;
+    background: #F26722;
     color: #000;
     padding: 10px 7px;
     font-weight: 600;
@@ -118,7 +118,7 @@
 .quantity-control button {
     width: 24px;
     height: 24px;
-    border: 2px solid #fac564;
+    border: 2px solid #F26722;
     background: white;
     color: #000;
     border-radius: 5px;
@@ -129,7 +129,7 @@
 }
 
 .quantity-control button:hover {
-    background: #fac564;
+    background: #F26722;
     color: white;
 }
 
@@ -177,7 +177,7 @@
 .cart-summary h3 {
     margin-bottom: 20px;
     padding-bottom: 15px;
-    border-bottom: 2px solid #fac564;
+    border-bottom: 2px solid #F26722;
 }
 
 .summary-row {
@@ -190,7 +190,7 @@
 .summary-row.total {
     font-size: 20px;
     font-weight: bold;
-    color: #fac564;
+    color: #F26722;
     border-top: 2px solid #f0f0f0;
     margin-top: 15px;
     padding-top: 15px;
@@ -199,7 +199,7 @@
 .checkout-btn {
     width: 100%;
     padding: 12px;
-    background: #fac564;
+    background: #F26722;
     color: #000;
     border: none;
     border-radius: 5px;
@@ -211,9 +211,9 @@
 }
 
 .checkout-btn:hover {
-    background: #f4b942;
+    background: #d9531a;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(250, 197, 100, 0.4);
+    box-shadow: 0 5px 15px rgba(242, 103, 34, 0.4);
 }
 
 .empty-cart {
@@ -231,7 +231,7 @@
     display: inline-block;
     margin-top: 20px;
     padding: 12px 30px;
-    background: #fac564;
+    background: #F26722;
     color: #000;
     text-decoration: none;
     border-radius: 5px;
@@ -240,7 +240,7 @@
 }
 
 .continue-shopping:hover {
-    background: #f4b942;
+    background: #d9531a;
     color: #000;
 }
 
@@ -328,11 +328,11 @@
 
     .mobile-cart-item .controls-row {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
         padding-top: 5px;
         border-top: 1px solid #f0f0f0;
-        gap: 6px;
+        gap: 15px;
     }
 
     .mobile-cart-item .price-info-mobile {
@@ -350,9 +350,10 @@
 
     /* السعر الإجمالي */
     .mobile-cart-item .total-price {
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 700;
-        color: #fac564;
+        color: #F26722;
+        margin-right: 5px;
     }
 
     .mobile-cart-item .quantity-control {
@@ -363,9 +364,9 @@
 
     /* أزرار الكمية */
     .mobile-cart-item .quantity-control button {
-        width: 22px;
+        width: 36px;
         height: 22px;
-        border: 1px solid #fac564;
+        border: 1px solid #F26722;
         background: white;
         color: #000;
         border-radius: 50%;
@@ -379,7 +380,7 @@
 
     /* حقل الكمية */
     .mobile-cart-item .quantity-control input {
-        width: 28px;
+        width: 49px;
         height: 22px;
         text-align: center;
         border: 1px solid #ddd;
@@ -394,11 +395,12 @@
         background: #ff4d4d;
         color: white;
         border: none;
-        padding: 4px 8px;
+        padding: 5px 12px;
         border-radius: 4px;
-        font-size: 10px;
+        font-size: 11px;
         font-weight: 600;
         white-space: nowrap;
+        margin-right: auto;
     }
 
     /* رسالة السلة الفارغة */
@@ -468,7 +470,7 @@
 .customer-info h3 {
     margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #fac564;
+    border-bottom: 2px solid #F26722;
     color: #000;
 }
 
@@ -507,7 +509,7 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #fac564;
+    border-color: #F26722;
     outline: none;
 }
 
@@ -521,7 +523,7 @@
     flex: 1;
     padding: 10px;
     background: #f8f9fa;
-    border: 2px solid #fac564;
+    border: 2px solid #F26722;
     color: #000;
     border-radius: 5px;
     cursor: pointer;
@@ -530,7 +532,7 @@
 }
 
 .address-btn:hover {
-    background: #fac564;
+    background: #F26722;
     color: #000;
 }
 
@@ -538,7 +540,7 @@
     width: 100%;
     padding: 10px;
     background: #f8f9fa;
-    border: 2px solid #fac564;
+    border: 2px solid #F26722;
     color: #000;
     border-radius: 5px;
     cursor: pointer;
@@ -548,7 +550,7 @@
 }
 
 .payment-btn:hover {
-    background: #fac564;
+    background: #F26722;
 }
 
 .selected-payment {
@@ -619,7 +621,7 @@
 .payment-option {
     flex: 1;
     padding: 20px;
-    border: 2px solid #fac564;
+    border: 2px solid #F26722;
     background: #f8f9fa;
     border-radius: 10px;
     cursor: pointer;
@@ -628,7 +630,7 @@
 }
 
 .payment-option:hover {
-    background: #fac564;
+    background: #F26722;
     transform: translateY(-2px);
 }
 
@@ -647,7 +649,7 @@
 
 .area-option {
     padding: 15px 20px;
-    border: 2px solid #fac564;
+    border: 2px solid #F26722;
     background: #f8f9fa;
     border-radius: 10px;
     cursor: pointer;
@@ -658,9 +660,9 @@
 }
 
 .area-option:hover {
-    background: #fac564;
+    background: #F26722;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(250, 197, 100, 0.3);
+    box-shadow: 0 5px 15px rgba(242, 103, 34, 0.3);
 }
 
 .close-modal {
@@ -717,7 +719,7 @@
 }
 
 .cart-item-count {
-    background: #fac564;
+    background: #F26722;
     color: #000;
     padding: 6px 12px;
     border-radius: 20px;
@@ -732,13 +734,13 @@
 .cart-total-price {
     font-size: 16px;
     font-weight: bold;
-    color: #fac564;
+    color: #F26722;
     direction: ltr;
     unicode-bidi: embed;
 }
 
 .cart-view-btn {
-    background: #fac564;
+    background: #F26722;
     color: #000;
     padding: 10px 20px;
     border: none;
@@ -753,7 +755,7 @@
 }
 
 .cart-view-btn:hover {
-    background: #f4b942;
+    background: #d9531a;
     color: #000;
     text-decoration: none;
     transform: translateY(-2px);
