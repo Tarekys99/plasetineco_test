@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تسجيل الدخول - لوحة التحكم</title>
-    <link rel="icon" href="../images/logo.png" type="image/png">
+    <link rel="icon" href="../right_images/logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -168,7 +168,7 @@
 
 <body>
     <div class="auth-container">
-        <img src="../images/logo.png" alt="بيتزا السلام" class="logo">
+        <img src="../right_images/logo.png" alt="Palestineco" class="logo">
         <h1>لوحة التحكم</h1>
         <p>الرجاء إدخال كلمة المرور للمتابعة</p>
 
@@ -190,11 +190,11 @@
 
     <script>
         // Default password hash - will be overridden if user changes password
-        const DEFAULT_HASH = '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9'; // admin123
+        const DEFAULT_HASH = '96d94025a84b3735ab107de3fafbb406f9f75731ceddb3585cf0f5d0f1359fdd'; // tarek123
 
         // Get stored password hash or use default
         function getPasswordHash() {
-            return localStorage.getItem('dashboardPasswordHash') || DEFAULT_HASH;
+            return localStorage.getItem('dashboardAuthHash') || DEFAULT_HASH;
         }
 
         async function hashPassword(password) {
