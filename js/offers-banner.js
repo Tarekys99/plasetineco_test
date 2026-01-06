@@ -7,7 +7,7 @@
 (function() {
     'use strict';
 
-    const API_URL = window.API_BASE_URL || 'https://pizza-alslam-apis.onrender.com';
+    const API_URL = window.API_BASE_URL || 'https://plasetineco-apis.onrender.com';
     const OFFERS_CATEGORY_ID = 4;
 
     // Initialize when DOM ready

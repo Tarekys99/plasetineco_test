@@ -25,7 +25,7 @@ function addToCart(item) {
         cart.push({
             name: item.name,
             price: parseFloat(item.price) || 0,
-            image: item.image || 'images/pizza-1.jpg',
+            image: item.image || 'right_images/logo.png',
             description: item.description || '',
             quantity: parseInt(item.quantity) || 1,
             size: item.size || '',

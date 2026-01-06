@@ -162,7 +162,7 @@ async function confirmOrderDelivery(orderId) {
         console.log(`Updating order ${orderId} to delivered status`);
 
         // Send new_status as query parameter, not in body
-        const response = await fetch(`https://pizza-alslam-apis.onrender.com/orders/${orderId}/status?new_status=delivered`, {
+        const response = await fetch(`https://plasetineco-apis.onrender.com/orders/${orderId}/status?new_status=delivered`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -210,8 +210,8 @@ async function loadUserOrders(userID) {
         }
 
         // Make API call to get user orders
-        console.log(`Fetching orders from: https://pizza-alslam-apis.onrender.com/orders/user_orders/${userID}`);
-        const response = await fetch(`https://pizza-alslam-apis.onrender.com/orders/user_orders/${userID}`);
+        console.log(`Fetching orders from: https://plasetineco-apis.onrender.com/orders/user_orders/${userID}`);
+        const response = await fetch(`https://plasetineco-apis.onrender.com/orders/user_orders/${userID}`);
 
         console.log(`Orders API response status: ${response.status}`);
 

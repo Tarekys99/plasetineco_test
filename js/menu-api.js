@@ -1,5 +1,5 @@
 // Menu API - Compact 4-Row Card Style
-const API_BASE_URL = 'https://pizza-alslam-apis.onrender.com';
+const API_BASE_URL = 'https://plasetineco-apis.onrender.com';
 
 // Make API_BASE_URL available globally for other scripts
 window.API_BASE_URL = API_BASE_URL;

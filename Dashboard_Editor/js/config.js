@@ -1,5 +1,5 @@
 // Dashboard API Configuration
-const API_BASE_URL = 'https://pizza-alslam-apis.onrender.com';
+const API_BASE_URL = 'https://plasetineco-apis.onrender.com';
 
 // Global State
 let categories = [];
