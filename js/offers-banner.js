@@ -8,7 +8,7 @@
     'use strict';
 
     const API_URL = window.API_BASE_URL || 'https://plasetineco-apis.onrender.com';
-    const OFFERS_CATEGORY_ID = 4;
+    const OFFERS_CATEGORY_ID = 11;
 
     // Initialize when DOM ready
     document.addEventListener('DOMContentLoaded', loadOffersBanner);
@@ -97,7 +97,18 @@
     function getImageUrl(url) {
         if (!url) return 'images/food.png';
         if (url.startsWith('http')) return url;
-        return API_URL + '/' + url;
+
+        // Encode each part of the path properly
+        const pathParts = url.split('/');
+        const encodedParts = pathParts.map(part => {
+            // encodeURIComponent doesn't encode parentheses, so we need to do it manually
+            return encodeURIComponent(part)
+                .replace(/\(/g, '%28')
+                .replace(/\)/g, '%29');
+        });
+        const encodedPath = encodedParts.join('/');
+
+        return API_URL + '/' + encodedPath;
     }
 
     function goToOffer(product) {

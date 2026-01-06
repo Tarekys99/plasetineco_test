@@ -33,7 +33,16 @@ function displayProducts(products, allVariants) {
     container.innerHTML = products.map(product => {
         let imageUrl = product.ImageUrl || '../images/food.png';
         if (imageUrl && !imageUrl.startsWith('http') && !imageUrl.startsWith('../')) {
-            imageUrl = `${API_BASE_URL}/${imageUrl}`;
+            // Encode each part of the path properly
+            const pathParts = imageUrl.split('/');
+            const encodedParts = pathParts.map(part => {
+                // encodeURIComponent doesn't encode parentheses, so we need to do it manually
+                return encodeURIComponent(part)
+                    .replace(/\(/g, '%28')
+                    .replace(/\)/g, '%29');
+            });
+            const encodedPath = encodedParts.join('/');
+            imageUrl = `${API_BASE_URL}/${encodedPath}`;
         }
 
         let price = 'غير محدد';

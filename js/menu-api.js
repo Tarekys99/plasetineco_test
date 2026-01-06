@@ -16,8 +16,18 @@ function getImageUrl(imageUrl) {
         return imageUrl;
     }
 
-    // If it's a relative path, add the API base URL
-    const fullUrl = API_BASE_URL + '/' + encodeURI(imageUrl);
+    // If it's a relative path, encode each part of the path properly
+    // Split by '/' and encode each segment separately
+    const pathParts = imageUrl.split('/');
+    const encodedParts = pathParts.map(part => {
+        // encodeURIComponent doesn't encode parentheses, so we need to do it manually
+        return encodeURIComponent(part)
+            .replace(/\(/g, '%28')
+            .replace(/\)/g, '%29');
+    });
+    const encodedPath = encodedParts.join('/');
+
+    const fullUrl = API_BASE_URL + '/' + encodedPath;
     console.log('Converting relative to absolute URL:', imageUrl, '->', fullUrl);
     return fullUrl;
 }
@@ -42,8 +52,8 @@ async function loadCategories() {
             tab.className = 'nav-link' + (i === 0 ? ' active' : '');
             tab.href = 'javascript:void(0)';
 
-            // Special styling for offers category (CategoryID = 4)
-            if (cat.CategoryID === 4) {
+            // Special styling for offers category (CategoryID = 11)
+            if (cat.CategoryID === 11) {
                 tab.innerHTML = '<i class="icon-tag" style="color: #fac564; margin-left: 5px;"></i>' + cat.CategoryName;
                 tab.style.background = 'linear-gradient(45deg, #fac564, #f0b90b)';
                 tab.style.color = '#000';
@@ -68,7 +78,7 @@ async function loadCategories() {
 
                 // Re-apply special styling for offers if selected
                 var categoryId = parseInt(this.getAttribute('data-id'));
-                if (categoryId === 4) {
+                if (categoryId === 11) {
                     this.style.background = 'linear-gradient(45deg, #fac564, #f0b90b)';
                     this.style.color = '#000';
                     this.style.fontWeight = 'bold';
@@ -87,7 +97,7 @@ async function loadCategories() {
                 const offerData = JSON.parse(targetOffer);
                 console.log('Target offer detected:', offerData);
 
-                // Load the offers category (CategoryID = 4)
+                // Load the offers category (CategoryID = 11)
                 loadProducts(offerData.categoryID);
 
                 // Activate the offers tab
