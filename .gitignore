@@ -49,13 +49,12 @@ test_*.py
 *.swp
 migrate_*.py
 
-# Documentation (optional)
+# Documentation and notes
 Routers/orders.md
-Note.txt
+*.txt
 
 # Others
 TEST_ANY_THINGS/
 TEST
 ngrok.exe
 ngrok
-.txt

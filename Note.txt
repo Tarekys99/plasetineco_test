@@ -7,4 +7,6 @@ powershell -Command "(Get-Content 'c:\SSAI\SS Projects\Plasetineco\Front-End\css
 C:/Users/hp/miniconda3/Scripts/activate
 conda activate base
 
+python -m http.server 80
+
 Crtl+f5 : لعمل تحديث وحذف الكاش لصفحة ما

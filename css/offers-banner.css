@@ -122,26 +122,38 @@
         display: flex;
         padding: 0 15px;
         width: max-content;
+        height: 100%;
+        align-items: center;
     }
 
     .offer-item {
         margin: 0 10px;
         padding: 10px 15px;
         min-width: 220px;
+        max-height: 90px;
+        overflow: hidden;
     }
 
     .offer-image {
         width: 55px;
         height: 55px;
         margin-left: 12px;
+        flex-shrink: 0;
     }
 
     .offer-text {
         font-size: 14px;
+        white-space: normal;
+        line-height: 1.3;
     }
 
     .offer-price {
         font-size: 13px;
+    }
+    
+    .offer-content {
+        flex: 1;
+        min-width: 0;
     }
 }
 
@@ -153,6 +165,7 @@
     .offer-item {
         min-width: 200px;
         padding: 8px 12px;
+        max-height: 80px;
     }
 
     .offer-image {
